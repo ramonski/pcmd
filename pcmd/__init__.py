@@ -86,7 +86,7 @@ def main():
         parser.exit(status=1, message=msg)
 
     if not config.has_option(args.section, args.cmd):
-        msg = "Command %s not in Section %\ns" % (args.cmd,  args.section)
+        msg = "Command %s not in Section %s\n" % (args.cmd,  args.section)
         parser.exit(status=1, message=msg)
 
     # run the shell command in the parent terminal
