@@ -4,6 +4,20 @@ Introduction
 This Script is mainly a shell command generator which executes the command in
 the parent shell.
 
+Requirements
+------------
+
+This script needs Python 2.7 because of argparse and depends on appscript.
+
+Installation
+------------
+
+The best thing is to install it in a Python 2.7 virtualenv for testing::
+
+    $ virtualenv -p python2.7 --no-site-packages pcmd
+    $ . pcmd/bin/activate
+    $ pip install --editable=git+https://github.com/ramonski/pcmd#egg=pcmd
+
 Configuration
 -------------
 
