@@ -1,6 +1,16 @@
 Changelog
 =========
 
+0.2 - 2011-06-05
+----------------
+
+  - factored out the ini config part
+    [ramonski]
+
+  - added bash completion script
+    [ramonski]
+
+
 0.1 - 2011-06-03
 ----------------
 
