@@ -52,3 +52,16 @@ After you configured some commands, you can execute them like this::
 
     $ p goto develop # executes -> cd /Users/rbartl/develop
     $ p mvim develop # executes -> mvim /Users/rbartl/develop
+
+Bash Completion
+---------------
+
+The p-command supports now bash completion.
+If you use bash, you can source the pcmd_wrapper.sh to enable bash completion::
+
+    $ source pcmd_wrapper.sh
+    $ p o<TAB>
+    option1 option2
+
+    $ p option1 s<TAB>
+    section1 section2
