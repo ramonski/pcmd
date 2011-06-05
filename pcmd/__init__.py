@@ -23,12 +23,14 @@ __docformat__ = 'plaintext'
 
 import os
 import argparse
-import ConfigParser
 import appscript
+
+from config import get_parser
+from config import get_config
+from config import is_config_there
 
 TERMINAL_ENV = "PTERM"
 TERMINAL_APP = "Terminal"
-INIFILE = ".p.ini"
 
 
 def terminal():
@@ -70,27 +72,22 @@ def main():
 
     args = parser.parse_args()
 
-    config = ConfigParser.ConfigParser()
+    pcmd = get_parser()
 
-    # read the config ini
-    home = os.environ.get("HOME")
-    conf = os.sep.join([home, INIFILE])
-    inifile = config.read(conf) # returns an empty list if file not there
-
-    if not inifile:
-        msg = "Config not found in: %s\n" % conf
+    if not is_config_there():
+        msg = "No Config found in %s\n" % get_config()
         parser.exit(status=1, message=msg)
 
-    if not config.has_section(args.section):
+    if not pcmd.has_section(args.section):
         msg = "Section %s not in config\n" % args.section
         parser.exit(status=1, message=msg)
 
-    if not config.has_option(args.section, args.cmd):
+    if not pcmd.has_option(args.section, args.cmd):
         msg = "Command %s not in Section %s\n" % (args.cmd,  args.section)
         parser.exit(status=1, message=msg)
 
     # run the shell command in the parent terminal
-    do_script(config.get(args.section, args.cmd))
+    do_script(pcmd.get(args.section, args.cmd))
 
 
 if __name__ == '__main__':

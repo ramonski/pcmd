@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.2'
 
 setup(name='pcmd',
       version=version,
@@ -24,6 +24,8 @@ setup(name='pcmd',
       entry_points={
           'console_scripts': [
               'p=pcmd:main',
+              '_p_sections=pcmd.config:_sections',
+              '_p_options=pcmd.config:_options',
               ],
           },
       )
