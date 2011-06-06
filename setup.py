@@ -19,7 +19,8 @@ setup(name='pcmd',
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
-          "appscript"
+          "appscript",
+          "argparse"
       ],
       entry_points={
           'console_scripts': [
